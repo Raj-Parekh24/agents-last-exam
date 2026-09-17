@@ -84,13 +84,6 @@ class SpinTriangleLifecycleTest(unittest.IsolatedAsyncioTestCase):
         card = json.loads((TASK_DIR / "task_card.json").read_text())
         self.assertEqual(card["vm"]["network"], {"mode": "off"})
 
-    def test_task_specific_selection_list(self):
-        entries = (REPO_ROOT / "selected_tasks" / "spin_triangle.txt").read_text().splitlines()
-        self.assertEqual(
-            [entry for entry in entries if entry and not entry.startswith("#")],
-            [self.meta["task_id"]],
-        )
-
     async def test_public_inputs_match_reviewed_snapshot(self):
         await self.loader.get_setup_fn()(self.cfg, self.session)
         expected = {

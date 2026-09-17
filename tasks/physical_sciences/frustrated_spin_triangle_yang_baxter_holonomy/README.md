@@ -126,14 +126,21 @@ These were custom container tests, not end-to-end ALE provider tests. The task
 card now provides a 7200-second total lifecycle allowance for provisioning,
 setup, solving and evaluation. Set experiment `wall_time_s: 3600` for the solver;
 this metadata adjustment does not change the inputs or the five recorded runs.
-Use `selected_tasks/spin_triangle.txt` as the experiment task list.
+Select the task inline in your experiment configuration:
+
+```yaml
+tasks:
+  - path: physical_sciences/frustrated_spin_triangle_yang_baxter_holonomy
+    variants: [0]
+```
+
 ALE loader discovery and local lifecycle tests pass;
 remote-provider execution and network enforcement still need validation. The
 task card declares `vm.network.mode: off`, following existing upstream offline
 tasks. This declaration is not proof of enforcement: the checked-out Docker
 provider does not consume that setting. Use an enforcing provider or external
-network isolation for an official run. The task-specific selection list does
-not claim a difficulty tier or provider support; the published manifest is untouched.
+network isolation for an official run. Curated task lists and the published
+manifest are untouched; no difficulty tier or provider support is claimed.
 
 The directory retains its original design identifier for continuity; the task
 does not require proving a Yang-Baxter relation or implementing holonomic control.
