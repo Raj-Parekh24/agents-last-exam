@@ -1,0 +1,2 @@
+# Task-specific review list; no difficulty-tier or provider-support classification.
+physical_sciences/frustrated_spin_triangle_yang_baxter_holonomy
